@@ -10,8 +10,10 @@
 			<a href="{% url 'logos:logo_detail_view' logos.pk %}">
 				<div class="card border border-primary bg-light" style="height:22rem;" >
 					<div class="card-body"  >
-						<div class="container" style="width:12rem; height:12rem;">
-							<img class="card-img-top " src="{{ logos.logo_img.url }}" >
+						<div class="container  " style="width:12rem; ">
+							
+							<img class="card-img-top " image" src="{{ logos.logo_img.url }}" >
+							
 						</div>
 			</a>
 						<div class="card-title"><h2>{{ logos.logo_name }}</h2></div>
@@ -21,13 +23,43 @@
 						
 							<div class="row container">
 								<div class="col-md-4" >
-									<a href="#"><button class="btn btn-outline-info">View</button></a>
+									<a href="{% url 'logos:logo_detail_view' logos.pk %}"><button class="btn btn-outline-info">View</button></a>
 								</div>
 								<div class="col-md-4" >
-									<a href="#"><button class="btn btn-outline-success">save</button></a>
+									<a href="{% url 'logos:logo_download_view' logos.pk %}"><button class="btn btn-outline-success">Save</button></a>
 								</div>
 								<div class="col-md-4 " >
-									<a href="#"><button class="btn btn-outline-danger">delete</button></a>
+										
+										<button class="btn  btn-outline-secondary " data-toggle="modal" data-target="#info-modal">Info</button>
+											<div class="modal fade " id="info-modal" >
+												<div class=" modal-dialog "  >
+													<div class="modal-content ">
+														<div class="modal-header " style="height:5rem;background-color: #7502d3">
+														<center><h1>{{ logos.logo_name }}</h1></center>
+														<a href="" class="close"  data-dismiss="modal" aria-label="close">
+															<span aria-hidden="true"><h1>&times;</h1></span>
+														</a>
+														</div>
+														<div >
+															<center><img  src="{{ logos.logo_img.url }}" width="200px"></center>
+														</div>
+														<div class="modal-body" style="padding-left:10px;">
+																<p>Logo Name : {{ logos.logo_name }}</p>
+																<p>Type of Logo :  {{ logos.logo_type }}</p>
+																<p>Software used : {{ logos.software_used }}</p>
+																<p>Created by : {{ logos.created_by }}</p>
+																<p>Requested by : {{ logos.requested_by }}</p>
+																<p>Creation_date : {{ logos.create_date }}</p>
+														</div>
+														<div class="modal-footer container-fluid">
+															<a href="{% url 'logos:logo_download_view' logos.pk %}" class="container-fluid">
+																<button class="btn btn-block btn-outline-success">Download</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+									
 								</div>
 							</div>		
 					</div>

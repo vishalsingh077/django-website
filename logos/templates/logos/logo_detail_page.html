@@ -18,15 +18,45 @@
 		<div>
 			Created by : {{ logo.created_by }}
 		</div>
+		
 	</div>
 	
 	<div class="col-md-6">
 		<div class="row">
 			<div class="col-md-6">
-			<a href="#"><button class="btn btn-block btn-outline-primary rounded">Download</button></a>
+			<a href=""><button class="btn btn-block btn-outline-primary rounded">Download</button></a>
 			</div>
 			<div class="col-md-6">
-			<a href="#"><button class="btn btn-block btn-outline-secondary rounded">Info</button></a>
+			
+			<button class="btn btn-block btn-outline-secondary rounded" data-toggle="modal" data-target="#info-modal">Info</button>
+				<div class="modal fade " id="info-modal" >
+					<div class=" modal-dialog "  >
+						<div class="modal-content ">
+							<div class="modal-header " style="height:5rem;background-color: #7502d3">
+							<center><h1>{{ logo.logo_name }}</h1></center>
+							<a href="" class="close"  data-dismiss="modal" aria-label="close">
+								<span aria-hidden="true"><h1>&times;</h1></span>
+							</a>
+							</div>
+							<div >
+								<center><img  src="{{ logo.logo_img.url }}" width="200px"></center>
+							</div>
+							<div class="modal-body" style="padding-left:10px;">
+									<p>Logo Name : {{ logo.logo_name }}</p>
+									<p>Type of Logo :  {{ logo.logo_type }}</p>
+									<p>Software used : {{ logo.software_used }}</p>
+									<p>Created by : {{ logo.created_by }}</p>
+									<p>Requested by : {{ logo.requested_by }}</p>
+									<p>Creation_date : {{ logo.create_date }}</p>
+							</div>
+							<div class="modal-footer container-fluid">
+								<a href="{% url 'logos:logo_download_view' logo.pk %}" class="container-fluid">
+									<button class="btn btn-block btn-outline-success">Download</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
