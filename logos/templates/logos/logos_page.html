@@ -1,0 +1,40 @@
+{% extends 'logos/base.html' %}
+
+{% block title %} Logos {% endblock %}
+
+{% block content %}
+<div class="container" >
+	<div class="row">
+		{% for logos in all_logos %}
+		<div class="col-md-3 col-sm-6 ">	
+			<a href="{% url 'logos:logo_detail_view' logos.pk %}">
+				<div class="card border border-primary bg-light" style="height:22rem;" >
+					<div class="card-body"  >
+						<div class="container" style="width:12rem; height:12rem;">
+							<img class="card-img-top " src="{{ logos.logo_img.url }}" >
+						</div>
+			</a>
+						<div class="card-title"><h2>{{ logos.logo_name }}</h2></div>
+							<div class="card-subtitle text-muted">
+								<h4>{{ logos.logo_type }}</h4>
+							</div>
+						
+							<div class="row container">
+								<div class="col-md-4" >
+									<a href="#"><button class="btn btn-outline-info">View</button></a>
+								</div>
+								<div class="col-md-4" >
+									<a href="#"><button class="btn btn-outline-success">save</button></a>
+								</div>
+								<div class="col-md-4 " >
+									<a href="#"><button class="btn btn-outline-danger">delete</button></a>
+								</div>
+							</div>		
+					</div>
+				</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}
