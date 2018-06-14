@@ -5,8 +5,11 @@ from . import views
 app_name = 'logos'
 
 urlpatterns = [
-    #home
+    #/
     url(r'^$', views.home_view ,name ="home_view"),
+
+    #/search/text/
+    url(r'^search/<text>[a-z]+/$', views.search_view ,name = "search_view"),
     
     #/logos/
     url(r'^logos/$', views.logos_view , name = "logos_view"),

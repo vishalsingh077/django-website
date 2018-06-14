@@ -17,6 +17,12 @@ def logo_detail_view(request,pk):
     logo = get_object_or_404(Logo,pk=pk)
     return render(request,'logos/logo_detail_page.html' ,{'logo':logo})
 
+def search_view(request):
+    query = request.GET.get('q')
+    searched_logos = Logo.objects.filter(logo_name__contains = query)or Logo.objects.filter(logo_type__contains = query)
+    context = {'searched_logos':searched_logos , 'query' : query}
+    return render(request , 'logos/search_page.html' , context)
+
 
 def logo_download_view(request, pk):
     item = get_object_or_404(Logo, pk=pk)

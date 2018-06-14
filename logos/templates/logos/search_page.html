@@ -1,0 +1,95 @@
+{% extends 'logos/base.html' %}
+
+{% block title %} search-result {% endblock %}
+
+{% block content %}
+	<div class="container">
+	<h1><center><strong> Searchresult for : {{ query }}<strong></center></h1>
+	<hr>
+	</div>
+
+	<div class="container" >
+	<div class="row">
+	{% if searched_logos %}
+	{% for logos in searched_logos %}
+		
+		<div class="col-md-3 col-sm-6 ">	
+			<a href="{% url 'logos:logo_detail_view' logos.pk %}">
+				<div class="card border border-primary bg-light" style="height:22rem;" >
+					<div class="card-body"  >
+						<div class="container  " style="width:12rem; ">
+							
+							<img class="card-img-top " image" src="{{ logos.logo_img.url }}" >
+							
+						</div>
+			</a>
+						<div class="card-title"><h2>{{ logos.logo_name }}</h2></div>
+							<div class="card-subtitle text-muted">
+								<h4>{{ logos.logo_type }}</h4>
+							</div>
+						
+							<div class="row container">
+								<div class="col-md-4" >
+									<a href="{% url 'logos:logo_detail_view' logos.pk %}"><button class="btn btn-outline-info">View</button></a>
+								</div>
+								<div class="col-md-4" >
+									<a href="{% url 'logos:logo_download_view' logos.pk %}"><button class="btn btn-outline-success">Save</button></a>
+								</div>
+								<div class="col-md-4 " >
+										
+										<button class="btn  btn-outline-secondary " data-toggle="modal" data-target="#info-modal">Info</button>
+											<div class="modal fade " id="info-modal" >
+												<div class=" modal-dialog "  >
+													<div class="modal-content ">
+														<div class="modal-header " style="height:5rem;background-color: #7502d3">
+														<center><h1>{{ logos.logo_name }}</h1></center>
+														<a href="" class="close"  data-dismiss="modal" aria-label="close">
+															<span aria-hidden="true"><h1>&times;</h1></span>
+														</a>
+														</div>
+														<div >
+															<center><img  src="{{ logos.logo_img.url }}" width="200px"></center>
+														</div>
+														<div class="modal-body" style="padding-left:10px;">
+																<p>Logo Name : {{ logos.logo_name }}</p>
+																<p>Type of Logo :  {{ logos.logo_type }}</p>
+																<p>Software used : {{ logos.software_used }}</p>
+																<p>Created by : {{ logos.created_by }}</p>
+																<p>Requested by : {{ logos.requested_by }}</p>
+																<p>Creation_date : {{ logos.create_date }}</p>
+														</div>
+														<div class="modal-footer container-fluid">
+															<a href="{% url 'logos:logo_download_view' logos.pk %}" class="container-fluid">
+																<button class="btn btn-block btn-outline-success">Download</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+									
+								</div>
+							</div>		
+					</div>
+				</div>
+		</div>
+		{% endfor %}
+		
+		{% else %}
+			<div class = "container">
+				<h2>No item match your search</h2>
+				<p> <h4>try typing different text </h4></p>
+				<p><h2>HINTS : </h2></p>
+				<p><ul>
+						<li> search by icon name </li>
+						<li> search by icon type</li>
+						<li> search by artist name </li>
+				</ul></p>
+			</div>
+			
+		{% endif %}
+		
+		
+	</div>
+</div>
+
+{% endblock %}

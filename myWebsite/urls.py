@@ -19,10 +19,13 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+        url(r'', include('logos.urls')),
+    url(r'', include('request.urls')),
     
-    url(r'', include('logos.urls')),
 
 ]
 
