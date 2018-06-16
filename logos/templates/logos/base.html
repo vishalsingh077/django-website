@@ -43,7 +43,7 @@
 		</div>
 		<form class="form-inline mt-md-2 " action="{% url 'logos:search_view' %}" method="get" accept-charset="utf-8" >
 			{% csrf_token %}
-			<input class="searchfield" type="text" placeholder="type to Search" name="q" aria-label="Search">
+			<input class="form-control searchfield" type="text" placeholder="type to Search" name="q" aria-label="Search">
 				<button class="btn btn-outline-success" type="submit"  id="search-icon"><img width="25px" height="25px"src="https://png.icons8.com/ios/100/000000/search.png">
 				</button>
 			</form>
