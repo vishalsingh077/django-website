@@ -1,0 +1,67 @@
+{% extends 'logos/index.html' %}
+
+{% block title %} Requests {% endblock %}
+
+{% block content %}
+<div class="container" id="divison" >
+	<div class="row">
+		{% for request in all_requests %}
+		<div class="col-md-6 col-sm-6 ">	
+			<a href="{% url 'request:request_detail_view' request.pk %}">
+				<div class="card border border-primary bg-dark" style="height:15rem;" >
+					<div class="card-body"  >
+						
+			</a>
+						<div class="card-title"><h2>{{ request.logo_type }}</h2>
+						</div>
+						<div class="card-subtitle text-muted">
+								<h4>{{ request.requested_by }}</h4>
+						</div>
+						<div class="container" >
+						<p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{ request.discription}}</p>
+						</div>
+							<div class="row container-fluid">
+								<div class="col-md-6 " >
+									<a href="{% url 'request:request_detail_view' request.pk %}"><button class="btn btn-block btn-outline-info">View</button></a>
+								</div>
+								
+								<div class="col-md-6 " >
+										
+										<button class="btn  btn-outline-secondary btn-block " data-toggle="modal" data-target="#info-modal">Info</button>
+											<div class="modal fade " id="info-modal" >
+												<div class=" modal-dialog "  >
+													<div class="modal-content ">
+														<div class="modal-header " style="height:5rem;background-color: #7502d3">
+														<center><h1>{{ request.requested_by }}</h1></center>
+														<a href="" class="close"  data-dismiss="modal" aria-label="close">
+															<span aria-hidden="true"><h1>&times;</h1></span>
+														</a>
+														</div>
+														
+														<div class="modal-body" id="info-body">
+																<p>Requested By : {{ request.requested_by }}</p>
+																<p>Type of Logo :  {{ request.logo_type }}</p>
+																<p>Email : {{ request.email }}</p>
+																<p>Usage : {{ request.usage }}</p>
+																<p>Discription : {{ request.discription }}</p>
+																<p>Request date : {{ request.request_date }}</p>
+														</div>
+														<div class="modal-footer container-fluid">
+															<a href="#" class="container-fluid">
+																<button class="btn btn-block btn-outline-success">Create</button>
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+									
+								</div>
+							</div>		
+					</div>
+				</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

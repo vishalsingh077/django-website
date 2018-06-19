@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class=" row container">
+<div class=" row container-fluid" id="divison">
 	<div class="col-md-6">
         Details for :<h1> {{ logo.logo_name }} </h1>
 		<div>
@@ -24,11 +24,11 @@
 	<div class="col-md-6">
 		<div class="row">
 			<div class="col-md-6">
-			<a href=""><button class="btn btn-block btn-outline-primary rounded">Download</button></a>
+			<a href="{% url 'logos:logo_download_view' logo.pk %}"><button class="btn btn-block btn-outline-primary rounded">Download</button></a>
 			</div>
 			<div class="col-md-6">
 			
-			<button class="btn btn-block btn-outline-secondary rounded" data-toggle="modal" data-target="#info-modal">Info</button>
+			<button class="btn btn-block btn-outline-info rounded" data-toggle="modal" data-target="#info-modal">Info</button>
 				<div class="modal fade " id="info-modal" >
 					<div class=" modal-dialog "  >
 						<div class="modal-content ">
@@ -41,7 +41,7 @@
 							<div >
 								<center><img  src="{{ logo.logo_img.url }}" width="200px"></center>
 							</div>
-							<div class="modal-body" style="padding-left:10px;">
+							<div class="modal-body" id="info-body">
 									<p>Logo Name : {{ logo.logo_name }}</p>
 									<p>Type of Logo :  {{ logo.logo_type }}</p>
 									<p>Software used : {{ logo.software_used }}</p>

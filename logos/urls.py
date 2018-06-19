@@ -20,6 +20,5 @@ urlpatterns = [
     #/logos/download/pk/
     url(r'^logos/download/(?P<pk>[0-9]+)/$', views.logo_download_view ,name = "logo_download_view"),
 
-    
 
 ]

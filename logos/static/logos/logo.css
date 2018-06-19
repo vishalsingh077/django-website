@@ -1,0 +1,32 @@
+#body-id {
+	color:white;
+}
+nav {
+	background-color:rgba(1, 39, 102,0.6);
+}
+nav a{
+	font-family: 'Orbitron' ,'sans-serif';
+}
+nav a:hover{
+	background-color:rgba(0,0,255,0.6);
+}
+#search-icon {
+	background-color: #28a745;
+}
+#home-body{
+	background-color:rgba(100,100,100,0.6);
+}
+
+#divison{
+	background-color:rgba(100,100,100,0.6);
+	padding:30px;
+}
+#info-body{
+	padding-left:10px;
+	background-color: grey
+}
+#footer{
+	 margin-top:100px;
+	 position : relative;
+	 bottom:0;
+}
