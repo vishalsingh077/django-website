@@ -8,7 +8,7 @@
 	<div class="col-md-6">
         Details for :<h1> {{ logo.logo_name }} </h1>
 		<div>
-            <img  src="{{ logo.logo_img.url }}" width="400px"  >
+            <img  class="img-fluid" alt="Responsive image"src="{{ logo.logo_img.url }}" width="400px"  >
 		</div>
 
 		<div>
@@ -28,8 +28,8 @@
 			</div>
 			<div class="col-md-6">
 			
-			<button class="btn btn-block btn-outline-info rounded" data-toggle="modal" data-target="#info-modal">Info</button>
-				<div class="modal fade " id="info-modal" >
+			<button class="btn btn-block btn-outline-info rounded" data-toggle="modal" data-target="#{{ logo.pk }}-info">Info</button>
+				<div class="modal fade " id="{{ logo.pk }}-info" >
 					<div class=" modal-dialog "  >
 						<div class="modal-content ">
 							<div class="modal-header " style="height:5rem;background-color: #7502d3">

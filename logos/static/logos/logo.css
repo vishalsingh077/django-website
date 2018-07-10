@@ -1,14 +1,19 @@
+html{
+	position: relative;
+    min-height: 100%;
+}
 #body-id {
 	color:white;
 }
 nav {
-	background-color:rgba(1, 39, 102,0.6);
+	background-color:rgba(1, 39, 242,0.6);
+	position:fixed;
 }
 nav a{
 	font-family: 'Orbitron' ,'sans-serif';
 }
 nav a:hover{
-	background-color:rgba(0,0,255,0.6);
+	background-color:rgba(200,200,200,1);
 }
 #search-icon {
 	background-color: #28a745;
@@ -25,8 +30,10 @@ nav a:hover{
 	padding-left:10px;
 	background-color: grey
 }
-#footer{
-	 margin-top:100px;
-	 position : relative;
-	 bottom:0;
+footer{
+	background:rgba(20,20,20,0.8);
+	margin-top:100px;
+    position:relative;
+    width: 100%;
+    overflow: hidden;
 }
